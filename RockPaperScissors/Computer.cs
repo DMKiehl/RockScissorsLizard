@@ -9,6 +9,7 @@ namespace RockPaperScissors
      class Computer : Players
     {
         //member variables
+        Random myRandom = new Random();
 
         //constructor
         public Computer()
@@ -20,7 +21,11 @@ namespace RockPaperScissors
         //member methods
         public override string ChooseGesture()
         {
-            return "";
+            int min = 1;
+            int max = 6;
+
+            string result = Convert.ToString(myRandom.Next(min, max));
+            return result;
         }
     }
 }

@@ -13,13 +13,30 @@ namespace RockPaperScissors
         //constructor
         public Human()
         {
-
+            
         }
 
         //member methods
         public override string ChooseGesture()
         {
-            return "";
+            Console.WriteLine("Please choose a gesture from the list: \n");
+            foreach (string gesture in Gestures)
+            {
+                Console.WriteLine(gesture);
+                
+            }
+            choice = Console.ReadLine();
+            if (choice == "Rock" || choice == "Paper" || choice == "Scissors" || choice == "Lizard" || choice == "Spock")
+            {
+                return choice;
+            }
+            else
+            {
+                Console.WriteLine("Select not valid, please choose again");
+                ChooseGesture();
+            }
+            
+            return choice;
         }
 
 

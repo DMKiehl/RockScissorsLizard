@@ -11,7 +11,13 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             Simulation simulation = new Simulation();
-            simulation.RunGame();
+            simulation.ChooseGameMode();
+            
+            
+
+
+            
+            
 
         }
     }

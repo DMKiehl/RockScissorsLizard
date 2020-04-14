@@ -11,13 +11,13 @@ namespace RockPaperScissors
        //member variables
 
         //constructor
-        public Human()
+        public Human(string playerChoice)
         {
-            
+            //ChooseGesture(playerChoice);
         }
 
         //member methods
-        public override string ChooseGesture()
+        public override string ChooseGesture(string playerChoice)
         {
             Console.WriteLine("Please choose a gesture from the list: \n");
             foreach (string gesture in Gestures)
@@ -33,7 +33,7 @@ namespace RockPaperScissors
             else
             {
                 Console.WriteLine("Select not valid, please choose again");
-                ChooseGesture();
+                ChooseGesture("New Choice");
             }
             
             return choice;

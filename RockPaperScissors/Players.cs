@@ -24,7 +24,7 @@ namespace RockPaperScissors
         }
 
         //member methods
-        public abstract string ChooseGesture();
+        public abstract string ChooseGesture(string playersChoice);
 
 
     }

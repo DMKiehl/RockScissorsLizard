@@ -12,20 +12,23 @@ namespace RockPaperScissors
         Random myRandom = new Random();
 
         //constructor
-        public Computer()
+        public Computer(string playerChoice)
         {
-
+            //ChooseGesture(playerChoice);
         }
 
 
         //member methods
-        public override string ChooseGesture()
+        public override string ChooseGesture(string playerChoice)
         {
-            int min = 1;
-            int max = 6;
+            int index = myRandom.Next(Gestures.Count);
+            Console.WriteLine(Gestures[index]);
+            return (Gestures[index]);
+            //int min = 1;
+            //int max = 6;
 
-            string result = Convert.ToString(myRandom.Next(min, max));
-            return result;
+            //string result = Convert.ToString(myRandom.Next(min, max));
+            //return result;
         }
     }
 }

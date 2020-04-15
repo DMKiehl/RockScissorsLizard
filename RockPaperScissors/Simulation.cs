@@ -91,68 +91,20 @@ namespace RockPaperScissors
                 CompareChoices(PlayerOneChoice, PlayerTwoChoice);
 
                 Console.WriteLine("Player One score: " + PlayerOneScore);
-                Console.WriteLine("Player Two score: " + PlayerTwoScore);
+                Console.WriteLine("Player Two score: " + PlayerTwoScore + "\n");
             };
 
             DeclareWinner(PlayerOneScore, PlayerTwoScore);
         }
-        
-        //public void RunSinglePlayerGame()
-        //{
-        //    player1 = new Human("Player One");
-        //    player2 = new Computer("Player Two");
-        //    while (PlayerOneScore < 3 && PlayerTwoScore < 3)
-        //    {
-        //        //Player One (human) chooses gesture
-                
-        //        player1.ChooseGesture("Player One");
-        //        PlayerOneChoice = player1.choice;
-
-        //        //Player Two (computer) chooses gesture
-                
-        //        player2.ChooseGesture("Player Two");
-        //        PlayerTwoChoice = player2.choice;
-
-        //        CompareChoices(PlayerOneChoice, PlayerTwoChoice);
-
-        //        Console.WriteLine("Player One score: " + PlayerOneScore);
-        //        Console.WriteLine("Player Two score: " + PlayerTwoScore);
-        //    };
-
-        //    DeclareWinner(PlayerOneScore, PlayerTwoScore);
-
-        //}
-
-        //public void RunMultiPlayerGame()
-        //{
-        //    player1 = new Human("Player One");
-        //    player2 = new Human("Player Two");
-        //    while (PlayerOneScore < 3 && PlayerTwoScore < 3)
-        //    {
-        //        //Player One (human) chooses gesture
-        //        player1.ChooseGesture("Player One");
-        //        PlayerOneChoice = player1.choice;
-
-        //        //Player Two (human) chooses gesture 
-        //        player2.ChooseGesture("Player Two");
-        //        PlayerTwoChoice = player2.choice;
-
-        //        CompareChoices(PlayerOneChoice, PlayerTwoChoice);
-
-        //        Console.WriteLine("Player One score: " + PlayerOneScore);
-        //        Console.WriteLine("Player Two score: " + PlayerTwoScore);
-        //    };
-
-        //    DeclareWinner(PlayerOneScore, PlayerTwoScore);
-        //}
 
         public void CompareChoices(string PlayerOneChoice, string PlayerTwoChoice)
         {
-            //if (PlayerOneChoice == PlayerTwoChoice)
-            //{
-            //    Console.WriteLine("You tie, try again!");
-            //}
-            if (PlayerOneChoice == "Rock")
+            Console.WriteLine("\n");
+            if (PlayerOneChoice == PlayerTwoChoice)
+            {
+                Console.WriteLine("You tie, try again!");
+            }
+            else if (PlayerOneChoice == "Rock")
             {
                 if (PlayerTwoChoice == "Scissors")
                 {
@@ -171,11 +123,7 @@ namespace RockPaperScissors
                     Console.WriteLine("Rock crushes Lizard");
                     Console.WriteLine("Player One wins this round!");
                     PlayerOneScore++;
-                }
-                else if (PlayerTwoChoice == "Rock")
-                {
-                    Console.WriteLine("You tie, try again!");
-                }
+                }           
                 else
                 {
                     Console.WriteLine("Spock vaporizes Rock");
@@ -202,11 +150,7 @@ namespace RockPaperScissors
                     Console.WriteLine("Rock crushes Scissors");
                     Console.WriteLine("Player Two wins this round!");
                     PlayerTwoScore++;
-                }
-                else if (PlayerTwoChoice == "Scissors")
-                {
-                    Console.WriteLine("You tie, try again!");
-                }
+                }             
                 else
                 {
                     Console.WriteLine("Scissors decapitates Lizard");
@@ -233,10 +177,6 @@ namespace RockPaperScissors
                     Console.WriteLine("Scissors decapitates Lizard");
                     Console.WriteLine("Player Two wins this round!");
                     PlayerTwoScore++;
-                }
-                else if(PlayerTwoChoice == "Lizard")
-                {
-                    Console.WriteLine("You tie, try again!");
                 }
                 else
                 {
@@ -265,10 +205,6 @@ namespace RockPaperScissors
                     Console.WriteLine("Player One wins this round!");
                     PlayerOneScore++;
                 }
-                else if (PlayerTwoChoice == "Paper")
-                {
-                    Console.WriteLine("You tie, try again!");
-                }
                 else
                 {
                     Console.WriteLine("Lizard eats Paper");
@@ -276,7 +212,7 @@ namespace RockPaperScissors
                     PlayerTwoScore++;
                 }
             }
-            else if (PlayerOneChoice == "Spock")
+            else 
             {
                 if(PlayerTwoChoice == "Rock")
                 {
@@ -296,10 +232,6 @@ namespace RockPaperScissors
                     Console.WriteLine("Player One wins this round!");
                     PlayerOneScore++;
                 }
-                else if(PlayerTwoChoice == "Spock")
-                {
-                    Console.WriteLine("You tie, try again!");
-                }
                 else
                 {
                     Console.WriteLine("Lizard poisons Spock");
@@ -307,12 +239,10 @@ namespace RockPaperScissors
                     PlayerTwoScore++;
                 }
 
+            
             }
-            else
-            {
-                Console.WriteLine("You tie, please play again!");
-            }
-            Console.ReadLine();
+            Console.WriteLine(" ");
+          
 
         }
 
@@ -320,13 +250,21 @@ namespace RockPaperScissors
         {
             if(PlayerOneScore == 3)
             {
-                Console.WriteLine("Player One Wins!");
+                Console.WriteLine("\n Player One Wins!");
                 Console.ReadLine();
             }
             else
             {
-                Console.WriteLine("Player Two Wins");
+                Console.WriteLine("\n Player Two Wins");
                 Console.ReadLine();
+            }
+
+            Console.WriteLine("Would you like to play again?\nYes \nNo");
+            string input = Console.ReadLine();
+
+            if(input == "Yes")
+            {
+                RunGame();
             }
 
         }

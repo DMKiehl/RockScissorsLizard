@@ -24,6 +24,23 @@ namespace RockPaperScissors
             PlayerTwoScore = 0;
         }
 
+        public void DisplayRules()
+        {
+            Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock \n");
+            Console.WriteLine("First player to 3 wins. \n");
+            Console.WriteLine("Here is the breakdown: \n");
+            Console.WriteLine("Rock crushes Scissors");
+            Console.WriteLine("Scissors cuts Paper");
+            Console.WriteLine("Paper covers Rock");
+            Console.WriteLine("Rock crushes Lizard");
+            Console.WriteLine("Lizard poisons Spock");
+            Console.WriteLine("Spock smaches Scissors");
+            Console.WriteLine("Scissors decapitates Lizard");
+            Console.WriteLine("Lizard eats Paper");
+            Console.WriteLine("Paper disproves Spock");
+            Console.WriteLine("Spock vaporizes Rock \n");
+        }
+
         //member methods
         public void ChooseGameMode()
         {
@@ -31,11 +48,18 @@ namespace RockPaperScissors
             int gameMode = Convert.ToInt32(Console.ReadLine());
             if (gameMode == 1)
             {
+                Console.WriteLine("Playing single player mode \n");
                 RunSinglePlayerGame();
+            }
+            else if (gameMode == 2)
+            {
+                Console.WriteLine("Playing multiplayer mode \n");
+                RunMultiPlayerGame();
             }
             else
             {
-                RunMultiPlayerGame();
+                Console.WriteLine("Not a valid option");
+                ChooseGameMode();
             }
         }
         
@@ -56,6 +80,9 @@ namespace RockPaperScissors
                 PlayerTwoChoice = player2.choice;
 
                 CompareChoices(PlayerOneChoice, PlayerTwoChoice);
+
+                Console.WriteLine("Player One score: " + PlayerOneScore);
+                Console.WriteLine("Player Two score: " + PlayerTwoScore);
             };
 
             DeclareWinner(PlayerOneScore, PlayerTwoScore);
@@ -77,6 +104,9 @@ namespace RockPaperScissors
                 PlayerTwoChoice = player2.choice;
 
                 CompareChoices(PlayerOneChoice, PlayerTwoChoice);
+
+                Console.WriteLine("Player One score: " + PlayerOneScore);
+                Console.WriteLine("Player Two score: " + PlayerTwoScore);
             };
 
             DeclareWinner(PlayerOneScore, PlayerTwoScore);
@@ -84,6 +114,10 @@ namespace RockPaperScissors
 
         public void CompareChoices(string PlayerOneChoice, string PlayerTwoChoice)
         {
+            //if (PlayerOneChoice == PlayerTwoChoice)
+            //{
+            //    Console.WriteLine("You tie, try again!");
+            //}
             if (PlayerOneChoice == "Rock")
             {
                 if (PlayerTwoChoice == "Scissors")
@@ -103,6 +137,10 @@ namespace RockPaperScissors
                     Console.WriteLine("Rock crushes Lizard");
                     Console.WriteLine("Player One wins this round!");
                     PlayerOneScore++;
+                }
+                else if (PlayerTwoChoice == "Rock")
+                {
+                    Console.WriteLine("You tie, try again!");
                 }
                 else
                 {
@@ -131,6 +169,10 @@ namespace RockPaperScissors
                     Console.WriteLine("Player Two wins this round!");
                     PlayerTwoScore++;
                 }
+                else if (PlayerTwoChoice == "Scissors")
+                {
+                    Console.WriteLine("You tie, try again!");
+                }
                 else
                 {
                     Console.WriteLine("Scissors decapitates Lizard");
@@ -157,6 +199,10 @@ namespace RockPaperScissors
                     Console.WriteLine("Scissors decapitates Lizard");
                     Console.WriteLine("Player Two wins this round!");
                     PlayerTwoScore++;
+                }
+                else if(PlayerTwoChoice == "Lizard")
+                {
+                    Console.WriteLine("You tie, try again!");
                 }
                 else
                 {
@@ -185,6 +231,10 @@ namespace RockPaperScissors
                     Console.WriteLine("Player One wins this round!");
                     PlayerOneScore++;
                 }
+                else if (PlayerTwoChoice == "Paper")
+                {
+                    Console.WriteLine("You tie, try again!");
+                }
                 else
                 {
                     Console.WriteLine("Lizard eats Paper");
@@ -211,6 +261,10 @@ namespace RockPaperScissors
                     Console.WriteLine("Spock smashes Scissors");
                     Console.WriteLine("Player One wins this round!");
                     PlayerOneScore++;
+                }
+                else if(PlayerTwoChoice == "Spock")
+                {
+                    Console.WriteLine("You tie, try again!");
                 }
                 else
                 {

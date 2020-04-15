@@ -17,7 +17,7 @@ namespace RockPaperScissors
             //ChooseGesture(playerChoice);
         }
 
-
+        
         //member methods
         public override string ChooseGesture(string playerChoice)
         {

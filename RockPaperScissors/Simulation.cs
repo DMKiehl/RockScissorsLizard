@@ -241,7 +241,7 @@ namespace RockPaperScissors
 
             
             }
-            Console.WriteLine(" ");
+            Console.WriteLine("\n ");
           
 
         }

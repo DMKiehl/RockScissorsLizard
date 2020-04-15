@@ -26,11 +26,7 @@ namespace RockPaperScissors
             Console.WriteLine(Gestures[index]);
             choice = (Gestures[index]);
             return choice;
-            //int min = 1;
-            //int max = 6;
-
-            //string result = Convert.ToString(myRandom.Next(min, max));
-            //return result;
+           
         }
     }
 }

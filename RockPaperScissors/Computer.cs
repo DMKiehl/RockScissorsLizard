@@ -22,8 +22,10 @@ namespace RockPaperScissors
         public override string ChooseGesture(string playerChoice)
         {
             int index = myRandom.Next(Gestures.Count);
+            Console.WriteLine("\n");
             Console.WriteLine(Gestures[index]);
-            return (Gestures[index]);
+            choice = (Gestures[index]);
+            return choice;
             //int min = 1;
             //int max = 6;
 

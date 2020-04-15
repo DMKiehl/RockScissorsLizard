@@ -24,6 +24,13 @@ namespace RockPaperScissors
             PlayerTwoScore = 0;
         }
 
+        public void RunGame()
+        {
+            DisplayRules();
+            ChooseGameMode();
+            PlayGame();
+        }
+
         public void DisplayRules()
         {
             Console.WriteLine("Welcome to Rock, Paper, Scissors, Lizard, Spock \n");
@@ -49,12 +56,16 @@ namespace RockPaperScissors
             if (gameMode == 1)
             {
                 Console.WriteLine("Playing single player mode \n");
-                RunSinglePlayerGame();
+                player1 = new Human("Player One");
+                player2 = new Computer("Player Two");
+                //RunSinglePlayerGame();
             }
             else if (gameMode == 2)
             {
                 Console.WriteLine("Playing multiplayer mode \n");
-                RunMultiPlayerGame();
+                player1 = new Human("Player One");
+                player2 = new Human("Player Two");
+                // RunMultiPlayerGame();
             }
             else
             {
@@ -62,55 +73,78 @@ namespace RockPaperScissors
                 ChooseGameMode();
             }
         }
-        
-        public void RunSinglePlayerGame()
+
+        public void PlayGame()
         {
-            player1 = new Human("Player One");
-            player2 = new Computer("Player Two");
             while (PlayerOneScore < 3 && PlayerTwoScore < 3)
             {
                 //Player One (human) chooses gesture
-                
+
                 player1.ChooseGesture("Player One");
                 PlayerOneChoice = player1.choice;
 
                 //Player Two (computer) chooses gesture
+
+                player2.ChooseGesture("Player Two");
+                PlayerTwoChoice = player2.choice;
+
+                CompareChoices(PlayerOneChoice, PlayerTwoChoice);
+
+                Console.WriteLine("Player One score: " + PlayerOneScore);
+                Console.WriteLine("Player Two score: " + PlayerTwoScore);
+            };
+
+            DeclareWinner(PlayerOneScore, PlayerTwoScore);
+        }
+        
+        //public void RunSinglePlayerGame()
+        //{
+        //    player1 = new Human("Player One");
+        //    player2 = new Computer("Player Two");
+        //    while (PlayerOneScore < 3 && PlayerTwoScore < 3)
+        //    {
+        //        //Player One (human) chooses gesture
                 
-                player2.ChooseGesture("Player Two");
-                PlayerTwoChoice = player2.choice;
+        //        player1.ChooseGesture("Player One");
+        //        PlayerOneChoice = player1.choice;
 
-                CompareChoices(PlayerOneChoice, PlayerTwoChoice);
+        //        //Player Two (computer) chooses gesture
+                
+        //        player2.ChooseGesture("Player Two");
+        //        PlayerTwoChoice = player2.choice;
 
-                Console.WriteLine("Player One score: " + PlayerOneScore);
-                Console.WriteLine("Player Two score: " + PlayerTwoScore);
-            };
+        //        CompareChoices(PlayerOneChoice, PlayerTwoChoice);
 
-            DeclareWinner(PlayerOneScore, PlayerTwoScore);
+        //        Console.WriteLine("Player One score: " + PlayerOneScore);
+        //        Console.WriteLine("Player Two score: " + PlayerTwoScore);
+        //    };
 
-        }
+        //    DeclareWinner(PlayerOneScore, PlayerTwoScore);
 
-        public void RunMultiPlayerGame()
-        {
-            player1 = new Human("Player One");
-            player2 = new Human("Player Two");
-            while (PlayerOneScore < 3 && PlayerTwoScore < 3)
-            {
-                //Player One (human) chooses gesture
-                player1.ChooseGesture("Player One");
-                PlayerOneChoice = player1.choice;
+        //}
 
-                //Player Two (human) chooses gesture 
-                player2.ChooseGesture("Player Two");
-                PlayerTwoChoice = player2.choice;
+        //public void RunMultiPlayerGame()
+        //{
+        //    player1 = new Human("Player One");
+        //    player2 = new Human("Player Two");
+        //    while (PlayerOneScore < 3 && PlayerTwoScore < 3)
+        //    {
+        //        //Player One (human) chooses gesture
+        //        player1.ChooseGesture("Player One");
+        //        PlayerOneChoice = player1.choice;
 
-                CompareChoices(PlayerOneChoice, PlayerTwoChoice);
+        //        //Player Two (human) chooses gesture 
+        //        player2.ChooseGesture("Player Two");
+        //        PlayerTwoChoice = player2.choice;
 
-                Console.WriteLine("Player One score: " + PlayerOneScore);
-                Console.WriteLine("Player Two score: " + PlayerTwoScore);
-            };
+        //        CompareChoices(PlayerOneChoice, PlayerTwoChoice);
 
-            DeclareWinner(PlayerOneScore, PlayerTwoScore);
-        }
+        //        Console.WriteLine("Player One score: " + PlayerOneScore);
+        //        Console.WriteLine("Player Two score: " + PlayerTwoScore);
+        //    };
+
+        //    DeclareWinner(PlayerOneScore, PlayerTwoScore);
+        //}
 
         public void CompareChoices(string PlayerOneChoice, string PlayerTwoChoice)
         {

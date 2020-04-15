@@ -11,8 +11,9 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             Simulation simulation = new Simulation();
-            simulation.DisplayRules();
-            simulation.ChooseGameMode();
+            simulation.RunGame();
+            //simulation.DisplayRules();
+            //simulation.ChooseGameMode();
             
             
 

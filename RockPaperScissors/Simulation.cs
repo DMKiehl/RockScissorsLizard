@@ -264,7 +264,8 @@ namespace RockPaperScissors
 
             if(input == "Yes")
             {
-                RunGame();
+                Simulation newSimulation = new Simulation();
+                newSimulation.RunGame();
             }
 
         }

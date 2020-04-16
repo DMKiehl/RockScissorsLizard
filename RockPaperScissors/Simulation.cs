@@ -9,13 +9,11 @@ namespace RockPaperScissors
     class Simulation
     {
         //member variables
-        public string PlayerOneChoice;
-        public string PlayerTwoChoice;
         public int PlayerOneScore;
         public int PlayerTwoScore;
         public Players player1;
         public Players player2;
-        //public Players player3 = new Human();
+        
 
         //constructor
         public Simulation()
@@ -58,14 +56,14 @@ namespace RockPaperScissors
                 Console.WriteLine("Playing single player mode \n");
                 player1 = new Human("Player One");
                 player2 = new Computer("Player Two");
-                //RunSinglePlayerGame();
+                
             }
             else if (gameMode == 2)
             {
                 Console.WriteLine("Playing multiplayer mode \n");
                 player1 = new Human("Player One");
                 player2 = new Human("Player Two");
-                // RunMultiPlayerGame();
+                
             }
             else
             {
@@ -78,17 +76,12 @@ namespace RockPaperScissors
         {
             while (PlayerOneScore < 3 && PlayerTwoScore < 3)
             {
-                //Player One (human) chooses gesture
-
+                
                 player1.ChooseGesture("Player One");
-                PlayerOneChoice = player1.choice;
-
-                //Player Two (computer) chooses gesture
-
+ 
                 player2.ChooseGesture("Player Two");
-                PlayerTwoChoice = player2.choice;
-
-                CompareChoices(PlayerOneChoice, PlayerTwoChoice);
+                
+                CompareChoices(player1.choice, player2.choice);
 
                 Console.WriteLine("Player One score: " + PlayerOneScore);
                 Console.WriteLine("Player Two score: " + PlayerTwoScore + "\n");
@@ -248,7 +241,7 @@ namespace RockPaperScissors
 
         public void DeclareWinner(int PlayerOneScore, int PlayerTwoScore)
         {
-            if(PlayerOneScore == 3)
+            if (PlayerOneScore == 3)
             {
                 Console.WriteLine("\n Player One Wins!");
                 Console.ReadLine();
@@ -257,15 +250,6 @@ namespace RockPaperScissors
             {
                 Console.WriteLine("\n Player Two Wins");
                 Console.ReadLine();
-            }
-
-            Console.WriteLine("Would you like to play again?\nYes \nNo");
-            string input = Console.ReadLine();
-
-            if(input == "Yes")
-            {
-                Simulation newSimulation = new Simulation();
-                newSimulation.RunGame();
             }
 
         }

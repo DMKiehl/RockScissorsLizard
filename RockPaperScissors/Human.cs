@@ -13,7 +13,7 @@ namespace RockPaperScissors
         //constructor
         public Human(string playerChoice)
         {
-            //ChooseGesture(playerChoice);
+            
         }
 
         //member methods

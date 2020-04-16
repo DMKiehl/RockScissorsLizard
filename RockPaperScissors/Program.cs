@@ -10,10 +10,16 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
-            Simulation simulation = new Simulation();
-            simulation.RunGame();
-            //simulation.DisplayRules();
-            //simulation.ChooseGameMode();
+            string input;
+            do
+            {
+                Simulation simulation = new Simulation();
+                simulation.RunGame();
+                Console.WriteLine("Do you want to play again? \nYes \nNo");
+                input = Console.ReadLine();
+            } while (input == "Yes");
+            
+           
             
             
 

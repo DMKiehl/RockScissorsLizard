@@ -14,7 +14,7 @@ namespace RockPaperScissors
         //constructor
         public Computer(string playerChoice)
         {
-            //ChooseGesture(playerChoice);
+            
         }
 
         
